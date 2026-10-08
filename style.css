@@ -1,0 +1,1223 @@
+/* =====================================================
+   NEON MATH
+   ESTÉTICA SYNTHWAVE / RETROWAVE DOS ANOS 80
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --night: #080019;
+    --deep-purple: #14002e;
+    --purple: #7b2cff;
+    --pink: #ff2bd6;
+    --cyan: #19f9ff;
+    --orange: #ff6b35;
+    --yellow: #ffd84d;
+    --white: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Orbitron", sans-serif;
+
+    color: var(--white);
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #3a075c 0%,
+            #16002f 35%,
+            #080019 75%
+        );
+
+    position: relative;
+}
+
+
+/* =====================================================
+   ESTRELAS
+===================================================== */
+
+.stars,
+.stars::before,
+.stars::after {
+    position: fixed;
+
+    width: 3px;
+    height: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        80px 60px white,
+        170px 130px #19f9ff,
+        260px 40px white,
+        340px 180px #ff2bd6,
+        430px 90px white,
+        530px 40px #19f9ff,
+        650px 150px white,
+        760px 60px #ff2bd6,
+        870px 180px white,
+        960px 90px #19f9ff,
+        1050px 40px white,
+        1150px 160px #ff2bd6,
+        1250px 80px white,
+        1350px 200px #19f9ff;
+
+    animation: twinkle 3s infinite alternate;
+
+    z-index: -5;
+}
+
+.stars::before {
+    content: "";
+
+    transform: translateY(220px) scale(0.7);
+}
+
+.stars::after {
+    content: "";
+
+    transform: translateY(420px) scale(0.5);
+}
+
+@keyframes twinkle {
+
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   SOL RETRÔ
+===================================================== */
+
+.sun {
+    position: fixed;
+
+    width: min(420px, 70vw);
+    height: min(420px, 70vw);
+
+    left: 50%;
+    top: 32%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #fff16b,
+            #ff9e45 40%,
+            #ff3e8c
+        );
+
+    box-shadow:
+        0 0 40px #ff6b35,
+        0 0 100px rgba(255, 43, 214, 0.45);
+
+    z-index: -4;
+
+    overflow: hidden;
+}
+
+
+/* linhas dentro do sol */
+
+.sun::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 50%;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 17px,
+            #18002d 18px,
+            #18002d 22px
+        );
+}
+
+
+/* =====================================================
+   MONTANHAS
+===================================================== */
+
+.mountains {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 42%;
+
+    clip-path: polygon(
+        0 100%,
+        0 65%,
+        12% 38%,
+        20% 60%,
+        32% 25%,
+        43% 65%,
+        55% 32%,
+        66% 62%,
+        79% 28%,
+        90% 58%,
+        100% 35%,
+        100% 100%
+    );
+
+    z-index: -3;
+}
+
+.mountains-back {
+    background: #18002e;
+
+    filter: drop-shadow(
+        0 -3px 10px rgba(255,43,214,0.5)
+    );
+}
+
+.mountains-front {
+    height: 32%;
+
+    background: #080019;
+
+    z-index: -2;
+}
+
+
+/* =====================================================
+   GRID RETRÔ
+===================================================== */
+
+.grid {
+    position: fixed;
+
+    left: -50%;
+    bottom: -25%;
+
+    width: 200%;
+    height: 65%;
+
+    background:
+        linear-gradient(
+            rgba(25,249,255,0.3) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(25,249,255,0.3) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 45px;
+
+    transform:
+        perspective(250px)
+        rotateX(55deg);
+
+    transform-origin: center top;
+
+    box-shadow:
+        0 -10px 40px rgba(25,249,255,0.2);
+
+    z-index: -1;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 24px 6%;
+
+    border-bottom: 1px solid rgba(25,249,255,0.25);
+
+    background: rgba(8,0,25,0.55);
+
+    backdrop-filter: blur(10px);
+}
+
+.brand {
+    transform: skew(-8deg);
+}
+
+.brand-small {
+    display: block;
+
+    color: var(--yellow);
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+}
+
+.brand h1 {
+    font-size: 30px;
+
+    letter-spacing: 5px;
+
+    color: var(--pink);
+
+    text-shadow:
+        0 0 8px var(--pink),
+        0 0 25px var(--pink);
+}
+
+.score-display {
+    text-align: right;
+}
+
+.score-display span {
+    display: block;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: var(--cyan);
+}
+
+.score-display strong {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 19px;
+
+    color: white;
+
+    text-shadow:
+        0 0 8px var(--cyan);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+    min-height: calc(100vh - 130px);
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px 90px;
+}
+
+.screen {
+    display: none;
+
+    width: 100%;
+    max-width: 900px;
+
+    animation: appear 0.6s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    position: relative;
+
+    max-width: 760px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+.eyebrow {
+    color: var(--cyan);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 10px var(--cyan);
+}
+
+.hero h2 {
+    font-size: clamp(42px, 9vw, 85px);
+
+    line-height: 0.9;
+
+    letter-spacing: -2px;
+
+    color: white;
+
+    text-shadow:
+        0 0 8px white,
+        0 0 25px var(--purple);
+
+    margin-bottom: 30px;
+}
+
+.hero h2 span {
+    display: block;
+
+    color: var(--pink);
+
+    text-shadow:
+        0 0 8px var(--pink),
+        0 0 30px var(--pink);
+}
+
+.intro {
+    max-width: 560px;
+
+    margin: auto;
+
+    color: #c5b9d9;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   TÓPICOS
+===================================================== */
+
+.topics {
+    display: flex;
+
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 30px 0;
+}
+
+.topics span {
+    padding: 9px 13px;
+
+    color: var(--cyan);
+
+    border: 1px solid rgba(25,249,255,0.4);
+
+    background: rgba(25,249,255,0.05);
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        inset 0 0 10px rgba(25,249,255,0.05);
+}
+
+
+/* =====================================================
+   FORMAS FLUTUANTES
+===================================================== */
+
+.floating-shape {
+    position: absolute;
+
+    font-size: 55px;
+
+    opacity: 0.45;
+
+    animation: float 4s ease-in-out infinite;
+}
+
+.shape-triangle {
+    color: var(--cyan);
+
+    left: -20px;
+    top: 30%;
+
+    text-shadow: 0 0 15px var(--cyan);
+}
+
+.shape-circle {
+    color: var(--pink);
+
+    right: 0;
+    top: 10%;
+
+    text-shadow: 0 0 15px var(--pink);
+
+    animation-delay: 1s;
+}
+
+.shape-square {
+    color: var(--yellow);
+
+    right: 5%;
+    bottom: 5%;
+
+    text-shadow: 0 0 15px var(--yellow);
+
+    animation-delay: 2s;
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.neon-button {
+    border: 1px solid var(--cyan);
+
+    padding: 17px 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(25,249,255,0.12),
+            rgba(255,43,214,0.12)
+        );
+
+    color: white;
+
+    font-family: inherit;
+    font-weight: 700;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px rgba(25,249,255,0.4),
+        inset 0 0 15px rgba(25,249,255,0.05);
+
+    transition: 0.25s;
+}
+
+.neon-button span {
+    color: var(--pink);
+
+    font-size: 18px;
+
+    margin-left: 12px;
+}
+
+.neon-button:hover {
+    color: var(--cyan);
+
+    border-color: var(--pink);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 20px rgba(255,43,214,0.5),
+        inset 0 0 20px rgba(255,43,214,0.08);
+}
+
+.neon-button:active {
+    transform: scale(0.96);
+}
+
+
+/* =====================================================
+   CABEÇALHO DO JOGO
+===================================================== */
+
+.game-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.game-header > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.label {
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color: #9e8eaf;
+}
+
+.game-header strong {
+    color: var(--cyan);
+
+    font-size: 17px;
+
+    text-shadow:
+        0 0 10px var(--cyan);
+}
+
+.lives strong {
+    color: var(--pink);
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px var(--pink);
+}
+
+
+/* =====================================================
+   PROGRESSO
+===================================================== */
+
+.progress-wrapper {
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 4px;
+
+    width: 100%;
+
+    background: rgba(255,255,255,0.08);
+}
+
+#progress {
+    height: 100%;
+
+    width: 10%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--pink),
+            var(--cyan)
+        );
+
+    box-shadow:
+        0 0 12px var(--pink);
+
+    transition: width 0.5s ease;
+}
+
+
+/* =====================================================
+   CARTÃO DA PERGUNTA
+===================================================== */
+
+.question-card {
+    position: relative;
+
+    padding: 40px 30px;
+
+    border: 1px solid rgba(25,249,255,0.4);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18,0,45,0.92),
+            rgba(8,0,25,0.95)
+        );
+
+    box-shadow:
+        0 0 30px rgba(123,44,255,0.15),
+        inset 0 0 30px rgba(25,249,255,0.03);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* Linha decorativa */
+
+.question-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 80px;
+    height: 2px;
+
+    background: var(--pink);
+
+    box-shadow:
+        0 0 10px var(--pink);
+}
+
+
+/* topo */
+
+.question-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.category {
+    padding: 7px 11px;
+
+    color: var(--yellow);
+
+    border: 1px solid rgba(255,216,77,0.5);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.timer {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid var(--cyan);
+
+    border-radius: 50%;
+
+    color: var(--cyan);
+
+    font-size: 13px;
+
+    box-shadow:
+        0 0 12px rgba(25,249,255,0.3);
+}
+
+.timer.danger {
+    color: var(--pink);
+
+    border-color: var(--pink);
+
+    box-shadow:
+        0 0 15px rgba(255,43,214,0.5);
+
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+
+    to {
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* ícone */
+
+.question-icon {
+    color: var(--pink);
+
+    font-size: 38px;
+
+    text-shadow:
+        0 0 15px var(--pink);
+
+    margin-bottom: 10px;
+}
+
+
+/* pergunta */
+
+.question-card h2 {
+    max-width: 700px;
+
+    margin: 0 auto 12px;
+
+    font-size: clamp(21px, 4vw, 32px);
+
+    line-height: 1.4;
+
+    color: white;
+}
+
+.question-hint {
+    color: #887b9d;
+
+    font-size: 9px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   RESPOSTAS
+===================================================== */
+
+.answers {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+    max-width: 650px;
+
+    margin: auto;
+}
+
+.answer-button {
+    min-height: 65px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    background:
+        rgba(255,255,255,0.025);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    position: relative;
+}
+
+.answer-button::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 3px;
+
+    background: var(--purple);
+
+    opacity: 0;
+
+    transition: 0.2s;
+}
+
+.answer-button:hover {
+    border-color: var(--cyan);
+
+    color: var(--cyan);
+
+    background:
+        rgba(25,249,255,0.05);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 5px 20px rgba(25,249,255,0.1);
+}
+
+.answer-button:hover::before {
+    opacity: 1;
+
+    background: var(--cyan);
+}
+
+
+/* certo */
+
+.answer-button.correct {
+    border-color: #00ff9d;
+
+    background:
+        rgba(0,255,157,0.1);
+
+    color: #00ff9d;
+
+    box-shadow:
+        0 0 20px rgba(0,255,157,0.2);
+}
+
+
+/* errado */
+
+.answer-button.wrong {
+    border-color: var(--pink);
+
+    background:
+        rgba(255,43,214,0.1);
+
+    color: var(--pink);
+
+    box-shadow:
+        0 0 20px rgba(255,43,214,0.2);
+}
+
+
+/* =====================================================
+   FEEDBACK
+===================================================== */
+
+.feedback {
+    min-height: 25px;
+
+    margin-top: 20px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+.feedback.correct-feedback {
+    color: #00ff9d;
+
+    text-shadow:
+        0 0 10px #00ff9d;
+}
+
+.feedback.wrong-feedback {
+    color: var(--pink);
+
+    text-shadow:
+        0 0 10px var(--pink);
+}
+
+
+/* =====================================================
+   COMBO
+===================================================== */
+
+.combo {
+    text-align: center;
+
+    margin-top: 18px;
+
+    color: #81738f;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+.combo strong {
+    color: var(--yellow);
+
+    margin-left: 8px;
+
+    text-shadow:
+        0 0 10px var(--yellow);
+}
+
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+.result-card {
+    max-width: 650px;
+
+    margin: auto;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255,43,214,0.4);
+
+    background:
+        rgba(12,0,30,0.9);
+
+    box-shadow:
+        0 0 40px rgba(255,43,214,0.12);
+
+    backdrop-filter: blur(10px);
+}
+
+.result-symbol {
+    color: var(--yellow);
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 20px var(--yellow);
+
+    animation: starFloat 2s infinite ease-in-out;
+}
+
+@keyframes starFloat {
+
+    50% {
+        transform: translateY(-8px) rotate(5deg);
+    }
+
+}
+
+.result-card h2 {
+    font-size: clamp(28px, 7vw, 50px);
+
+    color: var(--pink);
+
+    text-shadow:
+        0 0 15px var(--pink);
+
+    margin-bottom: 15px;
+}
+
+.result-message {
+    color: #bcb0ca;
+
+    font-size: 11px;
+
+    margin-bottom: 30px;
+}
+
+.final-score {
+    margin-bottom: 30px;
+}
+
+.final-score span {
+    display: block;
+
+    color: var(--cyan);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+.final-score strong {
+    display: block;
+
+    margin-top: 8px;
+
+    color: white;
+
+    font-size: clamp(45px, 10vw, 75px);
+
+    text-shadow:
+        0 0 15px var(--cyan);
+}
+
+
+/* =====================================================
+   ESTATÍSTICAS FINAIS
+===================================================== */
+
+.results-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-bottom: 35px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.results-grid div {
+    padding: 18px 5px;
+}
+
+.results-grid div + div {
+    border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+.results-grid span {
+    display: block;
+
+    color: #8d819a;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+.results-grid strong {
+    display: block;
+
+    margin-top: 7px;
+
+    color: var(--cyan);
+
+    font-size: 22px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 12px 5%;
+
+    color: #665875;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    background: rgba(8,0,25,0.7);
+
+    border-top: 1px solid rgba(255,255,255,0.05);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .header {
+        padding: 18px 5%;
+    }
+
+    .brand h1 {
+        font-size: 23px;
+    }
+
+    .score-display strong {
+        font-size: 15px;
+    }
+
+    main {
+        padding: 30px 14px 80px;
+    }
+
+    .hero {
+        padding: 20px 5px;
+    }
+
+    .floating-shape {
+        display: none;
+    }
+
+    .topics {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .topics span {
+        width: 190px;
+    }
+
+    .question-card {
+        padding: 28px 15px;
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+    }
+
+    .answer-button {
+        min-height: 58px;
+    }
+
+    .results-grid {
+        gap: 0;
+    }
+
+    footer {
+        font-size: 6px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .hero h2 {
+        font-size: 40px;
+    }
+
+    .question-card h2 {
+        font-size: 20px;
+    }
+
+    .result-card {
+        padding: 35px 18px;
+    }
+
+}

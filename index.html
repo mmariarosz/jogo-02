@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Neon Math — Matemática 6º Ano</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Fundo decorativo -->
+    <div class="stars"></div>
+    <div class="grid"></div>
+
+    <div class="sun"></div>
+
+    <div class="mountains mountains-back"></div>
+    <div class="mountains mountains-front"></div>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="brand">
+            <span class="brand-small">MATH</span>
+            <h1>NEON</h1>
+        </div>
+
+        <div class="score-display">
+            <span>PONTOS</span>
+            <strong id="score">00000</strong>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================= TELA INICIAL ================= -->
+
+        <section id="homeScreen" class="screen active">
+
+            <div class="hero">
+
+                <div class="floating-shape shape-triangle">△</div>
+                <div class="floating-shape shape-circle">○</div>
+                <div class="floating-shape shape-square">□</div>
+
+                <p class="eyebrow">UMA JORNADA MATEMÁTICA</p>
+
+                <h2>
+                    DESAFIE
+                    <span>SUA MENTE</span>
+                </h2>
+
+                <p class="intro">
+                    Prepare-se para uma viagem pelo universo dos números,
+                    formas e desafios matemáticos.
+                </p>
+
+                <div class="topics">
+
+                    <span>＋ OPERAÇÕES</span>
+                    <span>◇ FRAÇÕES</span>
+                    <span>△ GEOMETRIA</span>
+                    <span>％ PORCENTAGEM</span>
+
+                </div>
+
+                <button id="startButton" class="neon-button">
+                    COMEÇAR JORNADA
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= JOGO ================= -->
+
+        <section id="gameScreen" class="screen">
+
+            <div class="game-header">
+
+                <div>
+                    <span class="label">MISSÃO</span>
+                    <strong>
+                        <span id="questionNumber">1</span>
+                        /
+                        <span id="totalQuestions">10</span>
+                    </strong>
+                </div>
+
+                <div class="lives">
+                    <span class="label">ENERGIA</span>
+                    <strong id="lives">♥ ♥ ♥</strong>
+                </div>
+
+            </div>
+
+
+            <div class="progress-wrapper">
+
+                <div class="progress-bar">
+                    <div id="progress"></div>
+                </div>
+
+            </div>
+
+
+            <article class="question-card">
+
+                <div class="question-top">
+
+                    <span id="category" class="category">
+                        OPERAÇÕES
+                    </span>
+
+                    <div class="timer">
+                        <span id="timer">15</span>
+                    </div>
+
+                </div>
+
+                <div class="question-icon" id="questionIcon">
+                    ＋
+                </div>
+
+                <h2 id="question">
+                    Quanto é 8 × 7?
+                </h2>
+
+                <p class="question-hint">
+                    Escolha a alternativa correta
+                </p>
+
+
+                <div id="answers" class="answers">
+                    <!-- Criado pelo JavaScript -->
+                </div>
+
+
+                <div id="feedback" class="feedback"></div>
+
+            </article>
+
+
+            <div class="combo">
+                COMBO
+                <strong id="combo">x0</strong>
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESULTADO ================= -->
+
+        <section id="resultScreen" class="screen">
+
+            <div class="result-card">
+
+                <div class="result-symbol">
+                    ★
+                </div>
+
+                <p class="eyebrow">JORNADA CONCLUÍDA</p>
+
+                <h2 id="resultTitle">
+                    VOCÊ CONSEGUIU!
+                </h2>
+
+                <p id="resultMessage" class="result-message">
+                    Seu cérebro brilhou!
+                </p>
+
+
+                <div class="final-score">
+
+                    <span>PONTUAÇÃO FINAL</span>
+
+                    <strong id="finalScore">
+                        00000
+                    </strong>
+
+                </div>
+
+
+                <div class="results-grid">
+
+                    <div>
+                        <span>ACERTOS</span>
+                        <strong id="correctAnswers">0</strong>
+                    </div>
+
+                    <div>
+                        <span>ERROS</span>
+                        <strong id="wrongAnswers">0</strong>
+                    </div>
+
+                    <div>
+                        <span>COMBO</span>
+                        <strong id="finalCombo">x0</strong>
+                    </div>
+
+                </div>
+
+
+                <button id="restartButton" class="neon-button">
+                    NOVA JORNADA
+                    <span>↻</span>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <span>NEON MATH</span>
+        <span>MATEMÁTICA • 6º ANO</span>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
